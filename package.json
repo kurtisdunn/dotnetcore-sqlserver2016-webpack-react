@@ -1,0 +1,42 @@
+{
+  "name": "moviesapi",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "wbp": "webpack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "aspnet-webpack": "^2.0.1",
+    "babel-loader": "^8.0.4",
+    "camelcase": "^3.0.0",
+    "css-loader": "^0.24.0",
+    "exports-loader": "^0.6.4",
+    "file-loader": "^0.9.0",
+    "image-webpack-loader": "^3.3.0",
+    "imports-loader": "^0.7.1",
+    "node-sass": "^4.8.3",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "resolve-url-loader": "^2.2.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^3.12.0",
+    "webpack-hot-middleware": "^2.24.3"
+  },
+  "dependencies": {
+    "autoprefixer": "^7.1.6",
+    "bootstrap": "^4.0.0-beta.2",
+    "card-validator": "^4.1.0",
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1",
+    "popper.js": "^1.12.3",
+    "startbootstrap-clean-blog": "^5.0.1",
+    "tether": "^1.4.0",
+    "whatwg-fetch": "^2.0.3"
+  }
+}
