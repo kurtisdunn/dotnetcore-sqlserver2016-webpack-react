@@ -7,11 +7,13 @@ using System.Linq;
 namespace Blog.Services
 
 {
-     public class PostsDbContext : DbContext
+     public class DataContext : DbContext
      {
+        public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
         
-        public PostsDbContext(DbContextOptions<PostsDbContext> options) : base(options)
+
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
             Database.EnsureCreated();
         }

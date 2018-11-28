@@ -6,8 +6,8 @@ namespace Blog.Controllers
      [Route("api/[controller]")]
      public class PostsController : Controller
      {
-          private PostsDbContext _context;
-          public PostsController(PostsDbContext context)
+          private DataContext _context;
+          public PostsController(DataContext context)
           {
                _context = context;
           }
