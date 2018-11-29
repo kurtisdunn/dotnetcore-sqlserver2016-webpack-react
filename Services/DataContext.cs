@@ -11,7 +11,6 @@ namespace Blog.Services
      {
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
-        
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
@@ -20,6 +19,7 @@ namespace Blog.Services
 
     }
 }
+        
         // public string currentUsername => User.Identity;
         // public override int SaveChanges()
         //   {

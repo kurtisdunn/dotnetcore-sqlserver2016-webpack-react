@@ -6,29 +6,27 @@ namespace Blog.Services
 {
      public static class DataContextExtensions
      {
-          public static void CreateSeedData
-               (this DataContext context)
+          public static void CreateAdminUser(this DataContext context){
+               if (context.Users.Any()) return;
+               var user = new List<User>()
+               {
+                    new User()
+                    {
+                         FirstName = "Admin",
+                         LastName = "istrator",
+                         Email = "admin@admin.com",
+                         Username = "admin",
+                         PasswordHash = System.Text.Encoding.UTF8.GetBytes("a761ce3a45d97e41840a788495e85a70d1bb3815"),
+                         PasswordSalt = System.Text.Encoding.UTF8.GetBytes("f8ca9cce5531baa160838044ab0533118a85604a")
+                    }
+               };
+
+               context.AddRange(user);
+               context.SaveChanges();
+          }
+
+          public static void CreateDummyPosts(this DataContext context)
           {
-            if(context.Users.Any())
-            
-               return;
-             var user = new List<User>() 
-             {
-
-                 new User()
-                 {
-                    FirstName = "Admin",
-                    LastName = "istrator",
-                    Email = "admin@admin.com",
-                    Username = "admin",
-                    PasswordHash = System.Text.Encoding.UTF8.GetBytes("a761ce3a45d97e41840a788495e85a70d1bb3815"),
-                    PasswordSalt = System.Text.Encoding.UTF8.GetBytes("f8ca9cce5531baa160838044ab0533118a85604a")
-                 }
-             };
-                context.AddRange(user);
-                context.SaveChanges();
-            
-
                if (context.Posts.Any())
                     return;
                var posts = new List<Post>()

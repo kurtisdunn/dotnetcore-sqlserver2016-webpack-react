@@ -94,6 +94,7 @@ export default class Form extends React.Component {
         .catch(emitError(form, that));
     });
   }
+
   recursiveCloneChildren(children) {
     const that = this;
     return React.Children.map(children, child => {
@@ -108,6 +109,7 @@ export default class Form extends React.Component {
         return child;
     });
   }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit} >

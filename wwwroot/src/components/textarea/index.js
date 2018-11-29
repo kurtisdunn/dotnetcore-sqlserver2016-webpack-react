@@ -27,8 +27,6 @@ export default class Textarea extends React.Component {
       that.setState({
         errors: errors
       });
-      // that.state.errors = errors;
-      // that.forceUpdate();
     });
   }
 

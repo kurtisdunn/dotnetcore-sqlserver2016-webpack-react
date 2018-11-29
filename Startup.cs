@@ -33,7 +33,7 @@ namespace Blog
         public void ConfigureServices(IServiceCollection services)
 
              {
-            var connectionString =  "Server=localhost;Database=Blog;User Id=sa;Password=Passw0rd!";
+            var connectionString = "Server=localhost;Database=Blog;User Id=sa;Password=Passw0rd!";
             services.AddDbContext<DataContext>(o => o.UseSqlServer(connectionString));
             services.AddHttpContextAccessor();
             // services.AddMvc();
@@ -98,11 +98,15 @@ namespace Blog
                   });
             }
 
+            app.UseMvc();
             app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseCookiePolicy();
-            dataContext.CreateSeedData();
-            app.UseMvc();
+
+            dataContext.CreateAdminUser();
+            dataContext.CreateDummyPosts();
+
+            
 
             // app.Run(async (context) =>
             // {

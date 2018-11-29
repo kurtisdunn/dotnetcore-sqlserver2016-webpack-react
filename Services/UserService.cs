@@ -11,6 +11,7 @@ namespace Blog.Services
         User Authenticate(string username, string password);
         IEnumerable<User> GetAll();
         User GetById(int id);
+        User GetByUsername(string username);
         User Create(User user, string password);
         void Update(User user, string password = null);
         void Delete(int id);
@@ -53,7 +54,10 @@ namespace Blog.Services
         {
             return _context.Users.Find(id);
         }
-
+        public User GetByUsername(string username)
+        {
+            return _context.Users.Find(username);
+        }
         public User Create(User user, string password)
         {
             // validation

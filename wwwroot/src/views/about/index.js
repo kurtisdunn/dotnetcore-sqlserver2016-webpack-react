@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.scss';
 import NavBar from '../../components/navbar';
-import bgImg from 'startbootstrap-clean-blog/img/home-bg.jpg'
+import bgImg from 'startbootstrap-clean-blog/img/home-bg.jpg';
 
 export default class About extends React.Component {
   constructor(props) {

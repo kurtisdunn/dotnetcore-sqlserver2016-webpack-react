@@ -6,6 +6,8 @@ import { HashRouter as Router, Route, Switch, IndexRoute, hashHistory } from 're
 
 import About from '../../views/about';
 import Home from '../../views/home';
+import Login from '../../views/login';
+
 // import Mainlayout from '../../layouts/main';
 window.jQuery = window.$;
 ReactDOM.render(
@@ -14,6 +16,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={ Home } />
         <Route path="/about" component={ About } />
+        <Route path="/login" component={ Login } />
       </Switch>
 
   </Router>,
