@@ -75,7 +75,7 @@ export default class Form extends React.Component {
 
   handleSubmit(event) {
     const that = this;
-    const form = event.target;
+    // const form = event.target;
     const handler = this.props.method;
     if (handler) {
      event.preventDefault();

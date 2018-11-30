@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import cookie from 'js-cookie';
 
 function checkStatus (res) {
   if (res.status >= 200 && res.status < 300) {
@@ -17,7 +18,17 @@ function parseJson (res) {
 }
 
 export default function (path, opts = {}) {
-  return fetch('/api')
+  const token = cookie.getJSON('token');
+
+  if (!opts.headers) {
+    opts.headers = {};
+  }
+
+  if (token) {
+    opts.headers['Authorization'] = `Bearer ${token.access}`;
+  }
+
+  return fetch('api/' + path, opts)
     .then(checkStatus)
     .then(parseJson);
 }
