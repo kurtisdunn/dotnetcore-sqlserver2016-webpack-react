@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Blog.Services;
 using Blog.Dtos;
 using Blog.Entities;
+using Newtonsoft.Json;
 
 namespace Blog.Controllers
 {
@@ -23,7 +24,7 @@ namespace Blog.Controllers
         private IUserService _userService;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
-
+    
         public UsersController(
             IUserService userService,
             IMapper mapper,
@@ -56,16 +57,16 @@ namespace Blog.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
-
-            // return basic user info (without password) and token to store client side
-            return Ok(new
+            var jsonuser = new 
             {
                 Id = user.Id,
                 Username = user.Username,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Token = tokenString
-            });
+                   };
+
+            return Ok(JsonConvert.SerializeObject(jsonuser));
         }
 
         [AllowAnonymous]
@@ -79,7 +80,7 @@ namespace Blog.Controllers
             {
                 // save 
                 _userService.Create(user, userDto.Password);
-                return Ok();
+                return Ok("ok");
             }
             catch (AppException ex)
             {

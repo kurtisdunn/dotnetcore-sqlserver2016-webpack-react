@@ -1,19 +1,9 @@
 import React from 'react';
 import assign from 'object-assign';
-import emit from '../../utils/emit';
 import Alert from '../../components/alert';
 import validate from '../../utils/validator/form';
 
 const $ = window.$;
-
-function emitResponse (elem, cmpnt) {
-  return function (response) {
-    console.log('emitResponse', response);
-    emit(elem, 'response', {
-      detail: response
-    });
-  };
-}
 
 function emitSuccess (elem, cmpnt) {
   return function (response) {
@@ -89,7 +79,6 @@ export default class Form extends React.Component {
         return;
       }
       handler(serialize(form))
-        .then(emitResponse(form))
         .then(emitSuccess(form, that))
         .catch(emitError(form, that));
     });

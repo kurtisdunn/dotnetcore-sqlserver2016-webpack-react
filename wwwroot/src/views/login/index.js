@@ -16,9 +16,8 @@ export default class Login extends React.Component {
   render() {
     return (
       <div>
-      <NavBar theme={true}/>
+      <NavBar />
        <div className="login container">
-       
           <div className="row">
             <div className="col"></div>
             <div className="col-6">

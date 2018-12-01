@@ -5,6 +5,7 @@ function checkStatus (res) {
   if (res.status >= 200 && res.status < 300) {
     return res;
  }else if(res.status === 500) {
+   
    return res;
   } else {
     var error = new Error(res.statusText);

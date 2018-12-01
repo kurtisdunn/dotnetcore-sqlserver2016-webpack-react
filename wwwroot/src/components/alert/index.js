@@ -7,7 +7,7 @@ export default class Alert extends React.Component {
   }
   render() {
     return (
-      <div className={`alert alert-${this.props.type ? this.props.type : 'default'}`} role="alert">
+      <div className={`alert alert-${this.props.type ? this.props.type : 'default'} animated fadeIn`} role="alert">
       {this.props.message}
       </div>
     );
