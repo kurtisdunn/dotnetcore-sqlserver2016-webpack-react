@@ -24,8 +24,10 @@ namespace Blog
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }public static IConfiguration Configuration { get; set; }
-
+        }
+        
+        public static IConfiguration Configuration { get; set; }
+        
         // public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -97,7 +99,7 @@ namespace Blog
                   HotModuleReplacement = true
                   });
             }
-
+            
             app.UseMvc();
             app.UseStaticFiles();
             app.UseHttpsRedirection();

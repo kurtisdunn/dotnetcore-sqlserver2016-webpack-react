@@ -1,18 +1,44 @@
 import React from 'react';
 import styles from './index.scss';
+import Cookies from 'js-cookie';
 
+import { getAll }  from '../../api/posts';
 
+import Button from '../../components/button';
+import NavBar from '../../components/navbar';
+import { config } from '../../config';
+
+// import { bgImg } from 'node-modules/daemonite-material'
+
+function getPosts(){
+  return GetAllPosts();
+}
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     console.log('Home extends React.Component: ', props);
+    // this.getPosts = this.getPosts.bind(this);
   }
+  componentDidMount(){
+    if(config.user){
+      console.log(config.user);
+    }
+
+    console.log(Cookies.get('token'));
+    // document.
+  }
+  // getPosts(){
+  //   GetAllPosts().then(r => console.log(r));
+  //   //  console.log(GetAllPosts());
+  // }
   render() {
     return (
       <div>
         <NavBar />
-
-        <header className="masthead" style={{ backgroundImage: `url(${bgImg})` }}>
+        <div className="container">
+        { config.user ? (<h1>{config.user.useranme }</h1>) : null }
+          <Button value="Balls" onClick={() => getAll().then(r => console.log(r)) }/>
+        {/* <header className="masthead" style={{ backgroundImage: `url(${ bgImg })` }}>
           <div className="overlay"></div>
           <div className="container">
             <div className="row">
@@ -87,7 +113,8 @@ export default class Home extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+      </div>
       </div>
     );
   }

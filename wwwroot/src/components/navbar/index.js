@@ -18,17 +18,14 @@ export default class NavBar extends React.Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <a className="nav-link" href="index.html">Home</a>
+                <li className="nav-item" activeclassname="active">
+                  <NavLink className="nav-link" exact={ true } to="/" >HOME</NavLink>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="about.html">About</a>
+                <li className="nav-item" activeclassname="active">
+                  <NavLink className="nav-link" exact={ true } to="/login" >LOGIN</NavLink>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="post.html">Sample Post</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="contact.html">Contact</a>
+                <li className="nav-item" activeclassname="active">
+                  <NavLink className="nav-link" exact={ true } to="/sample" >SAMPLE POST</NavLink>
                 </li>
               </ul>
             </div>

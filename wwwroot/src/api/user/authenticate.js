@@ -1,5 +1,5 @@
 import { config } from '../../config';
-import cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 import fetch from '../../utils/fetch';
 
 export default function (data) {
@@ -12,9 +12,10 @@ export default function (data) {
     },
     body: JSON.stringify(data)
   }).then(r => {
-    cookie.set('token', {
-      access: r.access_token
+    Cookies.set('token', {
+      access: r.Token
     });
+
     config.user = r;
     return 'Success';
     }).catch('Login Failure');

@@ -65,7 +65,7 @@ namespace Blog.Controllers
                 LastName = user.LastName,
                 Token = tokenString
                    };
-
+            
             return Ok(JsonConvert.SerializeObject(jsonuser));
         }
 
@@ -80,7 +80,8 @@ namespace Blog.Controllers
             {
                 // save 
                 _userService.Create(user, userDto.Password);
-                return Ok("ok");
+                var allgood = "ok";
+                return Ok(JsonConvert.SerializeObject(allgood));
             }
             catch (AppException ex)
             {
